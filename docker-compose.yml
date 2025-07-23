@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  jokeapp:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5002:5002"
+    volumes:
+      - .:/app
+    restart: unless-stopped
