@@ -15,10 +15,11 @@ intents = discord.Intents.default()
 bot = discord.Bot(intents=intents)
 
 joke_task = None
-
+url = os.getenv("URL")
 
 async def fetch_joke():
-    url = "https://jokes.hex86.run/joke"
+    global url
+    print(url)
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as resp:
             if resp.status == 200:
